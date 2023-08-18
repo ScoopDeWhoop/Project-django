@@ -36,9 +36,10 @@
         <ul class="navbar">
             <div class="left-links">
                 <a href="/library">Home</a>
-                <a href="#about">About</a>
                 <a href="#services">Services</a>
                 <a href="#contact">Contact</a>
+                {% if user.is_authenticated %}
+                <a href="{% url 'all_loans' %}">Loans</a>{% endif %}
             </div>
         </ul>
         {% block content %}

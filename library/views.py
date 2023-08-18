@@ -85,3 +85,20 @@ def loan_book(request,book_name):
         else:
             messages.error(request, "Please log in.")
     return render(request, 'single_book.html', context)
+def show_loans(request):
+    all_loans = Loan.objects.all()
+    if request.user.is_superuser:
+        context = {
+            'loans': all_loans}
+    elif request.user.is_authenticated:
+        current_customer = Customer.objects.get(username=request.user.username)
+        customer_loans = Loan.objects.filter(customer=current_customer)
+        context = {
+                'loans': customer_loans}
+    return render(request, 'loans.html', context)
+def return_loan(request,loan_id):
+    if request.method == 'POST':
+        loan_return=Loan.objects.get(id=loan_id)
+        loan_return.delete()
+    messages.success(request, "Book successfully returned")
+    return redirect ("all_loans")

@@ -24,8 +24,8 @@ body {
     color: white;
     margin:0; 
     border:0;
-    
-    
+
+
 }
 
 .left-links {
@@ -71,7 +71,7 @@ body {
     width: max-content;
 }
 .row{
-    
+
     display: flex;
     justify-content: space-between;
     flex-direction: row;
@@ -89,7 +89,7 @@ body {
     border:5px solid black;
     border-radius:20px;
     margin-top:30px
-    
+
 }
 .book_img{
    display:flex;
@@ -110,25 +110,25 @@ body {
     margin-top: 30px;
     text-align: center;
 }
-  
+
 .form-container form {
     background-color: #fff;
     border-radius: 5px;
     padding: 20px;
     width: 300px;
-    
+
 }
-  
+
 .form-container h2 {
     margin-top: 0;
     color: #333;
 }
-  
+
 .form-container label {
     display: block;
     margin-bottom: 5px;
 }
-  
+
 .form-container input {
     width: 100%;
     padding: 8px;
@@ -136,7 +136,7 @@ body {
     border: 1px solid #ccc;
     border-radius: 4px;
 }
-  
+
 .form-container button {
     width: 100%;
     padding: 10px;
@@ -147,12 +147,14 @@ body {
     cursor: pointer;
     justify-content: center;
 }
-  
+
 .form-container button:hover {
     background-color: #00161c;
 }
 .book_page{
     display:flex;
+    margin-left:5px;
+    margin-right:5px;
 }
 .left_column{
     display:flex;
@@ -185,12 +187,17 @@ body {
     text-align: center;
     justify-content: center;
 }
-
+.right_column{
+    display:flex;
+    flex-direction: column;
+    margin-top:30px;
+    align-items:center
+}
 .summary{
     display:flex;
     margin-left:2%;
     margin-right:2%;
-    font-size: 20px;
+    font-size: 25px;
     border:5px solid black;
     border-radius:20px;
     margin-top:30px;
@@ -198,3 +205,14 @@ body {
     padding-left: 10px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 1px solid black;
+
+  }
+  th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+  }
