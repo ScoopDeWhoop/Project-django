@@ -1,0 +1,28 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<div class="book_page">
+    <div class="left_column">
+        <div class="book_img">
+            <p style="font-size:25px">{{ book.name }} </p>
+            <img src="{% static book.image %}" class="img-responsive" style="width: 70%; height: 250px;" alt="Image" />
+            <p style="font-size:25px">{{ book.get_loan_type_display }} </p>
+        </div>
+        <form id="loanForm" method="post" action="{% url 'loan_book' book.name %}">
+            {% csrf_token %}
+            <button class="bookpage_btn" type="submit">Loan Now!</button>
+        </form>
+        {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+    </ul>
+{% endif %}
+    </div>
+
+    <div class="right-column">
+    <div class="summary">
+        <p>{{ book.summary }}</p></div>
+    </div>
+</div>
+{% endblock %}
