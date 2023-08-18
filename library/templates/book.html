@@ -1,0 +1,18 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<h1 style="align-self: center;font-size: 50px;margin-bottom: 0px;">Hello {{user.username}}!</h1>
+<h1 style="align-self: center;font-size: 40px; margin-top: 0px;">This is our books collection:</h1>
+<div class="row">
+{% for book in books %}
+    <div class="column-1">
+        <div class="book_img">
+        <p  style="font-size:25px">{{ book.name }} </p>
+        <a href="{% url 'single_book' book.name %}"><img  src="{% static book.image %}" class="img-responsive" style="width: 100%; height: 250px;" alt="Image" /></a></div>
+    </div>
+    {% empty %}
+    <p>No books available.</p>
+    {% endfor %}
+
+
+</div>
+{% endblock %}
