@@ -2,7 +2,7 @@
 {% block content %}
 <div class="book_page">
     <div class="left_column">
-        <div class="book_img">
+        <div class="single_book_img">
             <p style="font-size:25px">{{ book.name }} </p>
             <img src="{% static book.image %}" class="img-responsive" style="width: 70%; height: 250px;" alt="Image" />
             <p style="font-size:25px">{{ book.get_loan_type_display }} </p>

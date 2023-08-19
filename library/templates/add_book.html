@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% load static %}
+{% block content %}
+<h1 style="margin-left:50px">Add new book:</h1>
+<div class="add_book">
+<form action="{% url 'add_book' %}" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <label for="name">Book name:</label>
+    <input  type="text" name="name" required><br><br>
+    
+    <label for="author">Author:</label>
+    <input type="text" name="author"><br><br>
+    
+    <label for="year_published">Date Published:</label>
+    <input type="date" name="year_published" required><br><br>
+    
+    <label for="loan_type">Loan Type:</label>
+    <select name="loan_type">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select><br><br>
+    
+    <label for="image">Image:</label>
+    <input  type="file" name="image"><br><br>
+    
+    <label for="summary">Summary:</label><br>
+    <textarea name="summary" rows="4" cols="50"></textarea><br><br>
+    
+    <input style="padding:15px; width:150px;border-radius: 10px; background-color: mediumaquamarine;" type="submit" value="Submit">
+</form></div>
+{% if messages %}
+<ul class="messages">
+    {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock %}

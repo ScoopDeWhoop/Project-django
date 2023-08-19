@@ -71,21 +71,24 @@ body {
     width: max-content;
 }
 .row{
-
+    
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-start;
     flex-direction: row;
     margin-top: 30px;
     height: 370px;
     margin-left: 5%;
     margin-right: 5%;
     flex-wrap:wrap;
+    gap:40px;
 }
 .column-1{
     height: 400px;
     width: 300px;
     display:flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     border:5px solid black;
     border-radius:20px;
     margin-top:30px
@@ -162,10 +165,11 @@ body {
     margin-top:30px;
     align-items:center
 }
-.book_img{
+.single_book_img{
     height: 400px;
     width: 300px;
     display:flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     border:5px solid black;
@@ -180,7 +184,7 @@ body {
     border-radius:20px;
     font-size: 20px;
 }
-.book_img p{
+.single_book_img p{
     display:flex;
     width: 200px;
     height:50px;
@@ -216,3 +220,25 @@ table {
     padding: 8px;
     text-align: left;
   }
+.add_book{
+    margin-top:20px;
+    margin-left:50px
+}
+.add_book input{
+    border-radius: 5px;
+    border-color:mediumaquamarine;
+}
+.add_book select{
+    border-radius: 5px;
+    border-color:mediumaquamarine;
+}
+.add_book textarea{
+    border-radius: 5px;
+    border-color:mediumaquamarine;
+}
+.delete_button{
+    padding:10px;
+    width: 150px;
+    background-color:darkred;
+    font-size: 20px;
+}

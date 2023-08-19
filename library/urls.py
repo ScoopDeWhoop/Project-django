@@ -12,4 +12,6 @@ urlpatterns = [
     path('loan/<book_name>', views.loan_book, name='loan_book'),
     path("loanslist/", views.show_loans, name="all_loans"),
     path("return/<int:loan_id>", views.return_loan, name="return_loan"),
+    path("addbook/", views.add_book, name="add_book"),
+    path("remove/<book_name>", views.remove_book, name="remove_book"),
 ]

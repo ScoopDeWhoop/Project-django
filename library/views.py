@@ -87,14 +87,19 @@ def loan_book(request,book_name):
     return render(request, 'single_book.html', context)
 def show_loans(request):
     all_loans = Loan.objects.all()
+    today = datetime.now().date()
     if request.user.is_superuser:
         context = {
-            'loans': all_loans}
+            'loans': all_loans,
+            'today': today
+        }
     elif request.user.is_authenticated:
         current_customer = Customer.objects.get(username=request.user.username)
         customer_loans = Loan.objects.filter(customer=current_customer)
         context = {
-                'loans': customer_loans}
+            'loans': customer_loans,
+            'today': today
+        }
     return render(request, 'loans.html', context)
 def return_loan(request,loan_id):
     if request.method == 'POST':
@@ -102,3 +107,19 @@ def return_loan(request,loan_id):
         loan_return.delete()
     messages.success(request, "Book successfully returned")
     return redirect ("all_loans")
+def add_book(request):
+    if request.method == 'POST':
+        book=request.POST.get('name')
+        author=request.POST.get('author')
+        year=request.POST.get('year_published')
+        type=request.POST.get('loan_type')
+        image=request.FILES.get('image')
+        summary=request.POST.get('summary')
+        new_book = Book.objects.create(name=book, author=author ,year_pulished=year ,loan_type=type ,image= image, summary=summary)
+        new_book.save()
+        messages.success(request, "Book successfully added")
+    return render(request, 'add_book.html')
+def remove_book(request,book_name):
+    book = Book.objects.get(name=book_name)
+    book.delete()
+    return redirect ("all_books")

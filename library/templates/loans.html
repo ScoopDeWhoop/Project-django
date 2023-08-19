@@ -1,31 +1,35 @@
 {% extends "base.html" %} {% load static %}
 {% block content %}
-
 <table>
     <tr>
         <th>Name</th>
         <th>Book</th>
         <th>Loan Date</th>
         <th>Return Date</th>
+        <th>Status</th>
     </tr>
-{% for loan in loans %}
-<tr>
-    <td>{{loan.customer}}</td>
-    <td>{{loan.book}}</td>
-    <td>{{loan.loan_date}}</td>
-    <td>{{loan.return_date}}</td>
-    <th><form id="returnForm" method="post" action="{% url 'return_loan' loan.id %}">
-        {% csrf_token %}
-        <button type="submit">Return Now!</button>
-    </form></th>{% endfor %}
-</tr>
-{% if messages %}
-<ul class="messages" style="display:flex; justify-content: center; font-size: 30px;">
-    {% for message in messages %}
-        <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% for loan in loans %}
+    <tr>
+        <td>{{ loan.customer }}</td>
+        <td>{{ loan.book }}</td>
+        <td>{{ loan.loan_date }}</td>
+        <td>{{ loan.return_date }}</td>
+        <td>
+            {% if loan.return_date < today %}
+                <span style="color: red;">Late</span>
+            {% else %}
+                Active
+            {% endif %}
+        </td>
+        <td>
+            <form id="returnForm" method="post" action="{% url 'return_loan' loan.id %}">
+                {% csrf_token %}
+                <button type="submit">Return Now!</button>
+            </form>
+        </td>
+    </tr>
     {% endfor %}
-</ul>
-{% endif %}
+</table>
 
 
 {% endblock %}
