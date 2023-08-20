@@ -17,8 +17,7 @@
         <div class="searchbar">
             <form action="{% url 'search' %}" method="POST">
                 {% csrf_token %}
-                <input type="text" id="searchBook" name="searchBook" placeholder="Search book" 
-                    style="width: 700px;height: 35px;border-radius: 5px;">
+                <input type="text" id="searchBook" name="searchBook" placeholder="Search book" >
                 <button type="submit" style="height: 40px;width:50px;border-radius:5px;">
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                         <path

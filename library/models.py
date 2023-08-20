@@ -5,7 +5,7 @@ from django.contrib.auth.models import AbstractUser
 class Customer(AbstractUser):
     username = models.CharField(max_length=100, primary_key=True)
     city = models.CharField(max_length=100, null=True)
-    date_of_birth = models.DateField(default='2000-01-01')
+    date_of_birth = models.DateField(default='2000-01-01', null=True)
     email=models.EmailField(max_length=100, default="email@email.com")
     def __str__(self):
         return f"{self.username}"

@@ -4,17 +4,8 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-}
-.footer{
-    background-color: #006AA2;
-    padding: 20px;
-    text-align: center;
-    position:relative ;
-    bottom: 0;
-    width: 100%;
-    margin-top: auto;   
-
-}
+    width:100%;
+    }
 
 .navbar {
     display: flex;
@@ -24,6 +15,7 @@ body {
     color: white;
     margin:0; 
     border:0;
+    width:100%;
 
 
 }
@@ -63,12 +55,18 @@ body {
 .headbar {
     display: flex;
     background-color: #003957;
+    width: 100%;
 }
 
 .searchbar {
     padding-left: 20px;
     align-self: center;
-    width: max-content;
+    width: 100%;
+}
+.searchbar input{
+    width: 40%;
+    height: 35px;
+    border-radius: 5px;
 }
 .row{
     
@@ -241,4 +239,5 @@ table {
     width: 150px;
     background-color:darkred;
     font-size: 20px;
+    border-radius:20px;
 }
