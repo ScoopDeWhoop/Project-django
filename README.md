@@ -9,8 +9,9 @@ This project contain diffrent functions:
 6.Book summary
 
 Installation:
-1. python -m venv venv
-2. ./venv/Scripts/activate
-3. pip install -r requirements.txt
+1. git clone https://github.com/ScoopDeWhoop/Project-django
+2. python -m venv venv
+3. ./venv/Scripts/activate
+4. pip install -r requirements.txt
 
 
